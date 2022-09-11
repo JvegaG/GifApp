@@ -1,16 +1,14 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react'
 
 interface AddCategory {
-    // currentCategories: string[];
     onAddCategory: Function;
 }
 
-export const AddCategory: FC<AddCategory> = ({ /* currentCategories, */ onAddCategory }) => {
+export const AddCategory: FC<AddCategory> = ({ onAddCategory }) => {
 
     const [inputValue, setInputValue] = useState('');
 
     const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-        // console.log(event)
         setInputValue(event.target.value)
     }
 
@@ -18,9 +16,6 @@ export const AddCategory: FC<AddCategory> = ({ /* currentCategories, */ onAddCat
         event.preventDefault();
         if(inputValue.trim().length<=0) return;
 
-        // console.log(event)
-        // onAddCategory([...currentCategories, inputValue]);
-        // onAddCategory((item: string[]) => [...item, inputValue])    // by callback
         onAddCategory(inputValue)
         setInputValue('');
     }

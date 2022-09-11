@@ -1,42 +1,36 @@
-import { MouseEvent, useState } from "react";
-import { AddCategory } from "../Components/AddCategory";
+import { useState } from "react";
+import { AddCategory, GiftGrid } from "../Components";
 
 const GiftLookingApp = () => {
 
-    const [categories, setCategories] = useState<string[]>(['One Punch', 'Dragon ball']);
+    const [categories, setCategories] = useState<string[]>([]);
 
-    // const onAddCategory = (event: MouseEvent<HTMLButtonElement> ) => {
-    //     console.log(event)
+    const addCategoy = async (newItem: string) => {
+        const cleanData = categories.map(x => x.toLowerCase().trim());
 
-    //     const newItem = "Twitch"
-    //     setCategories([...categories, newItem]);
-    // }
-
-    const addCategoy = (newItem: string) => {
-        if(categories.includes(newItem)) return;
-        setCategories([...categories, newItem]);
+        if (cleanData.includes(newItem.toLowerCase().trim())) return;
+        setCategories([newItem, ...categories]);
     }
 
     return (
         <>
-            <h1>GiftLookingApp</h1>
+            <h3>GiftLookingApp</h3>
 
             <AddCategory
-                // currentCategories={categories}
-                // onAddCategory={setCategories}
                 onAddCategory={(value: string) => addCategoy(value)}
             />
-
-            {/* <button
-                className="btn btn-primary mb-2"
-                onClick={onAddCategory}
-            >Add</button> */}
-
-            <ol>
-                {categories.map((item: string, index: number) => {
-                    return <li key={item}>{`${item}`}</li>
-                })}
-            </ol>
+            {
+                (categories.length <= 0) && (
+                    <h1 className="text-center">Lista Vacia</h1>
+                )
+            }
+            {
+                categories.map((item: string) => (
+                    <GiftGrid
+                        key={item}
+                        searchText={item} />
+                ))
+            }
         </>
     )
 }
