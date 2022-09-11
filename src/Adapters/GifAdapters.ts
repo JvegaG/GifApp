@@ -1,8 +1,8 @@
-import { ImagesProps } from "../Models/GiftModels";
-import { getGiftBySearch } from "../Services/GiftRequest";
+import { ImagesProps } from "../Models/GifModels";
+import { getGiftBySearch } from "../Services/GifRequest";
 
 
-export const giftAdapterBySearch = async (searchText: string) => {
+export const gifAdapterBySearch = async (searchText: string) => {
     const request = await getGiftBySearch(searchText);
     const data: ImagesProps[] = request.map((item: any) => ({
         id: item.id,

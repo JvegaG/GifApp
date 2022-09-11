@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { AddCategory, GiftGrid } from "../Components";
+import { AddCategory, GifGrid } from "../Components";
 
-const GiftLookingApp = () => {
+const GifLookingApp = () => {
 
     const [categories, setCategories] = useState<string[]>([]);
 
@@ -14,7 +14,7 @@ const GiftLookingApp = () => {
 
     return (
         <>
-            <h3>GiftLookingApp</h3>
+            <h3>GifLookingApp</h3>
 
             <AddCategory
                 onAddCategory={(value: string) => addCategoy(value)}
@@ -26,7 +26,7 @@ const GiftLookingApp = () => {
             }
             {
                 categories.map((item: string) => (
-                    <GiftGrid
+                    <GifGrid
                         key={item}
                         searchText={item} />
                 ))
@@ -35,4 +35,4 @@ const GiftLookingApp = () => {
     )
 }
 
-export default GiftLookingApp;
+export default GifLookingApp;

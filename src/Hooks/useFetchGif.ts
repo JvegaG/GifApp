@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { giftAdapterBySearch } from "../Adapters/GiftAdapters";
-import { ImagesProps } from "../Models/GiftModels";
+import { gifAdapterBySearch } from "../Adapters/GifAdapters";
+import { ImagesProps } from "../Models/GifModels";
 
 
-export const useFetchGift = (search: string) => {
+export const useFetchGif = (search: string) => {
 
     const [imagesData, setImagesData] = useState<ImagesProps[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const requestCategories = async () => {
-        const images: ImagesProps[] = await giftAdapterBySearch(search);
+        const images: ImagesProps[] = await gifAdapterBySearch(search);
         setImagesData(images);
         setIsLoading(false);
     }

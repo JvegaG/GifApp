@@ -1,15 +1,15 @@
 import { FC } from "react";
-import { useFetchGift } from "../Hooks/useFetchGift";
-import { ImagesProps } from "../Models/GiftModels";
-import { GiftItem } from "./GiftItem";
+import { useFetchGif } from "../Hooks/useFetchGif";
+import { ImagesProps } from "../Models/GifModels";
+import { GifItem } from "./GifItem";
 
 interface GiftGridProps {
     searchText: string;
 }
 
-export const GiftGrid: FC<GiftGridProps> = ({ searchText }) => {
+export const GifGrid: FC<GiftGridProps> = ({ searchText }) => {
 
-    const {imagesData, isLoading} = useFetchGift(searchText);
+    const {imagesData, isLoading} = useFetchGif(searchText);
 
     return (
         <>
@@ -21,7 +21,7 @@ export const GiftGrid: FC<GiftGridProps> = ({ searchText }) => {
             <div className="card-grid">
                 {
                     imagesData.map((item: ImagesProps) => (
-                        <GiftItem 
+                        <GifItem 
                             key={item.id}
                             {...item}
                             />

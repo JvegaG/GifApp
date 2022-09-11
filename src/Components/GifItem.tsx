@@ -1,7 +1,7 @@
-import { ImagesProps } from "../Models/GiftModels"
+import { ImagesProps } from "../Models/GifModels"
 
 
-export const GiftItem = ({id, imageUrl, title}: ImagesProps) => {
+export const GifItem = ({id, imageUrl, title}: ImagesProps) => {
   return (
     <div className="card">
         <img src={imageUrl} alt={title} />

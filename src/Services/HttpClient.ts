@@ -1,4 +1,4 @@
-import { ResponseProps } from "./GiftRequest";
+import { ResponseProps } from "./GifRequest";
 
 abstract class HttpMethods {
     abstract getHttp(url: string): Promise<ResponseProps>
