@@ -21,11 +21,11 @@ export const AddCategory: FC<AddCategory> = ({ onAddCategory }) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label="form">
             <input
-                className="mb-2"
+                className="mb-2 input-text"
                 type="text"
-                placeholder="Buscar Gift"
+                placeholder="Buscar Gif o Sticker"
                 value={inputValue}
                 onChange={onChangeInput}
             />
