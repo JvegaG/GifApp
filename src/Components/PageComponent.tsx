@@ -39,10 +39,6 @@ export const PageComponent: FC<paginationProps> = ({ data, received }) => {
 
     }
 
-    useEffect(() => {
-        console.log("data", data);
-    }, [data]);
-
     return (
         <>
             <nav aria-label="...">

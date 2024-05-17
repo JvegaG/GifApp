@@ -9,7 +9,7 @@ jest.mock('../../src/Hooks/useFetchGiphy');
 describe('Test <GifGrid /> element', () => {
 
     const _searchText = 'Dragon';
-    const _optionSearch = OptionEnum.GIFT;
+    const _optionSearch = OptionEnum.GIF;
 
     test('Initialize process', () => {
 
@@ -34,7 +34,7 @@ describe('Test <GifGrid /> element', () => {
                 title: 'Goku pequeño'
             },
             {
-                id: 'abc',
+                id: 'bcd',
                 imageUrl: 'https://url.goku.jpg',
                 title: 'Goku pequeño'
             },

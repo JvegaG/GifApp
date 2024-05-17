@@ -12,14 +12,14 @@ export const useFetchGiphy = (search: string, option: OptionEnum, offset: number
     const [pagination, setPagination] = useState<PaginationModel>();
 
     const requestData = async () => {
-        const { data } = await fetchData();
-        const images: ImagesProps[] = data;
+        const { imageData } = await fetchData();
+        const images: ImagesProps[] = imageData;
         setImagesData(images);
         setIsLoading(false);
         setPagination(pagination);
     }
 
-    const fetchData = async (): Promise<{ data: ImagesProps[], pagination: PaginationModel }> => {
+    const fetchData = async (): Promise<{ imageData: ImagesProps[], pagination: PaginationModel }> => {
         try {
             const requestOption: searchRequestOptions = {
                 search,
@@ -29,11 +29,11 @@ export const useFetchGiphy = (search: string, option: OptionEnum, offset: number
 
             if (option === OptionEnum.GIF) {
                 const { gifs, pagination } = await gifAdapterBySearch(requestOption);
-                return { data: gifs, pagination };
+                return { imageData: gifs, pagination };
             }
 
             const { stickers, pagination } = await stickerAdapterBySearch(requestOption);
-            return { data: stickers, pagination };
+            return { imageData: stickers, pagination };
 
         } catch (error) {
             throw error;

@@ -11,6 +11,7 @@ describe('Verify GiphyRequest.ts File', () => {
     test('should verify if receive everything you want ', async () => {
 
         const { data } = await getGiftBySearch(input);
+
         expect(data.length).toBeGreaterThan(0);
         expect(data[0]).toEqual(expect.objectContaining({
             id: expect.any(String),
